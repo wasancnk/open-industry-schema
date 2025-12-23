@@ -70,19 +70,88 @@ This file can live:
 
 ---
 
-## Repository Structure (Example)
+## Repository Structure
 
 ```
-(root directory)
-  |-src
-    |-ois.js
-  |-compiled
-    |-th
-      |-<business_id>
-        |-ois.json
+open-industry-schema/
+  ├── src/
+  │   ├── index.html          # Main web interface for the OIS generator
+  │   ├── ois-app.js          # Application logic: form generation, validation, JSON compilation
+  │   ├── ois-app.css         # Styling for the web interface
+  │   └── ois-template.js     # Schema definition and field structure template
+  │
+  ├── compiled/
+  │   └── <country_code>/     # e.g., th/ for Thailand, us/ for United States
+  │       └── <business_id>/
+  │           └── ois.json    # Generated OIS file for a specific business
+  │
+  └── README.md               # Project documentation
 ```
 
-Each `ois.json` file is independently usable. Any platform may download, cache, or index these files freely.
+### File Descriptions
+
+**`src/index.html`**  
+The main web interface. Open this file in any browser to access the OIS generator form. No server or build process required.
+
+**`src/ois-app.js`**  
+Core application logic that dynamically generates the form from the template, handles user input validation, and compiles the final JSON output.
+
+**`src/ois-app.css`**  
+Styling for the web interface to ensure a clean, professional, and user-friendly experience.
+
+**`src/ois-template.js`**  
+Defines the OIS schema structure, including all fields, data types, validation rules, and field descriptions. This is the single source of truth for what an `ois.json` file contains.
+
+**`compiled/<country_code>/<business_id>/ois.json`**  
+Generated OIS files organized by country code and business identifier. Each `ois.json` file is independently usable and can be freely downloaded, cached, or indexed by any platform.
+
+---
+
+## How to Use OIS
+
+### For Businesses: Publishing Your OIS File
+
+**Step 1: Generate Your OIS File**
+1. Clone this repository or download the source files
+2. Open `src/index.html` in your web browser
+3. Fill in your business information in the form
+4. Click "Generate OIS File"
+5. Copy the generated JSON text
+6. Save it as `ois.json`
+
+**Step 2: Publish Your OIS File**
+
+Place your `ois.json` file at the root of your website, just like `sitemap.xml`:
+
+```
+https://yourwebsite.com/ois.json
+```
+
+**Examples:**
+- `https://acme-manufacturing.com/ois.json`
+- `https://mycompany.io/ois.json`
+- `https://example-services.net/ois.json`
+
+This makes your business instantly discoverable and machine-readable by:
+- AI agents searching for capabilities
+- Marketplaces indexing suppliers
+- Search engines understanding your offerings
+- Procurement systems finding matches
+
+**Step 3: Keep It Updated**
+
+Update your `ois.json` whenever your offerings, capabilities, or business information changes.
+
+### For Platforms: Consuming OIS Files
+
+To discover and consume OIS data:
+
+1. **Direct Access**: Fetch `ois.json` from known business URLs
+2. **This Repository**: Browse the `compiled/` directory for submitted OIS files
+3. **Crawling**: Check for `/ois.json` during regular web crawling
+4. **Submission**: Allow businesses to submit their OIS URLs to your platform
+
+No authentication, no API keys, no rate limits. Just standard HTTP requests.
 
 ---
 
