@@ -173,7 +173,7 @@ No authentication, no API keys, no rate limits. Just standard HTTP requests.
 OIS is an **open public project**.
 
 To ensure coherence, versioning, and execution:
-- the schema is currently **initiated and stewarded under RecapMap**
+- the schema is currently **initiated and stewarded under RecapMap** (https://recapmap.com)
 - stewardship does not imply ownership of business data
 - all published `ois.json` files remain owned by their respective businesses
 
