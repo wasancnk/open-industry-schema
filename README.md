@@ -1,4 +1,4 @@
-# Open Industries Schema (OIS)
+# Open Industries Schema (OIS) v0.0.0
 
 **Open Industries Schema (OIS)** is an open, public data schema that allows businesses to express their goods, services, capabilities, and problems in a **machine-readable, AI-native format**.
 
