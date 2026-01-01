@@ -86,6 +86,37 @@ var oisTemplateConcept = {
             
             // OPTIONAL: The logo of the business.
             orgLogo: "<insert business logo URL here>"
-        }
+        },
+
+        // REQUIRED: List of SKUs (products or services) offered by the business.
+        skus: [
+            {
+                // REQUIRED: The unique identifier for the SKU inside the business.
+                skuID: "<insert SKU ID here>",
+                
+                // REQUIRED: The name of the SKU.
+                skuName: "<insert SKU name here>",
+                
+                // REQUIRED: A description of the SKU.
+                skuDescription: {
+                    // Both plain text and Schema.org description are supported.
+                    // Example plainText: "Our premium web development service offers custom solutions tailored to your business needs.",
+                    // Example keywords: "webDevelopment, customSolutions, premiumService",
+                    plainText: "<insert plain text description here>",
+                    keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                },
+
+                // REQUIRED: The unit name of the SKU.
+                skuUnit: "<insert SKU unit name here>",
+
+                // OPTIONAL: The price of the SKU.
+                skuPrice: {
+                    // The amount in the smallest currency unit (e.g., cents).
+                    amount: "<insert amount here>",
+                    // The currency code in ISO 4217 format (e.g., USD, EUR).
+                    currency: "<insert currency code here>"
+                },
+            },
+        ]
     }
 };
