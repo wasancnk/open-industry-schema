@@ -106,16 +106,39 @@ var oisTemplateConcept = {
                     keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                 },
 
-                // REQUIRED: The unit name of the SKU.
-                skuUnit: "<insert SKU unit name here>",
+                // REQUIRED: Atomic unit name of the SKU, must be name of smallest unit.
+                // For example: "hour", "item", "session", "piece", "gram", milliliter", etc.
+                skuAtomicUnitName: "<insert atomic unit name here>",
 
-                // OPTIONAL: The price of the SKU.
-                skuPrice: {
-                    // The amount in the smallest currency unit (e.g., cents).
-                    amount: "<insert amount here>",
-                    // The currency code in ISO 4217 format (e.g., USD, EUR).
-                    currency: "<insert currency code here>"
+                // REQUIRED: Atomic unit type of the SKU, must be type of smallest unit.
+                skuAtomicUnitTypeConcept: {
+                    // Both plain text and Schema.org keywords are supported.
+                    // Example plainText: "hourlyRate",
+                    // Example keywords: "hourlyRate, timeBased, serviceUnit",
+                    plainText: "<insert plain text description here>",
+                    keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                 },
+
+                // OPTIONAL: List of alternative units for the SKU.
+                skuOtherUnits: [
+                    {
+                        // REQUIRED: The name of the alternative unit.
+                        // `amountPerAtomicUnit` must be defined if this is defined.
+                        unitName: "<insert alternative unit name here>",
+                        amountPerAtomicUnit: 100, // Example number, can be integer or float.
+                        
+                        // OPTIONAL: The amount range per atomic unit for this alternative unit.
+                        // Useful for non-linear conversion rates. For e.g., consulting project.
+                        amountRangePerAtomicUnit: {
+                            // OPTIONAL: The minimum amount per atomic unit for this alternative unit.
+                            minAmount: 70,
+                            // OPTIONAL: The maximum amount per atomic unit for this alternative unit.
+                            maxAmount: 100
+                        }
+
+                    }
+                ]
+
             },
         ]
     }
