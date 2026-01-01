@@ -44,7 +44,7 @@ var oisTemplateConcept = {
     // RULE: All `keywords` fields must be an array of strings, and allowed 
     // up to 5 keywords only.
     oisContext : {
-        orgMetadata: {
+        orgMetadataMain: {
             // REQUIRED: The name of the business.
             orgName: "<insert business name here>",
             
@@ -137,7 +137,15 @@ var oisTemplateConcept = {
                         }
 
                     }
-                ]
+                ],
+
+                // OPTIONAL: Define a dedicated organization managing this SKU.
+                // Useful for white-label, reseller, multi-brand, OEM, partnership, franchise, and branch-specific.
+                // Follow the same structure as `orgMetadataMain`.
+                orgMetadataDedicated: {},
+                
+                // OPTIONAL: The URL to the dedicated org metadata ois.json file.
+                orgMetadataDedicatedURL: "<insert dedicated org metadata URL here>",
 
             },
         ]
