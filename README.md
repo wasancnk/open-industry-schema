@@ -1,13 +1,13 @@
-# Open Industries Schema (OIS) v0.0.0
+# Open Industry Schema (OIS) v1.0
 
-**Open Industries Schema (OIS)** is an open, public data schema that allows businesses to express their goods, services, capabilities, and problems in a **machine-readable, AI-native format**.
+**Open Industry Schema (OIS)** is an open, public data schema that allows businesses to express their identity, offerings, capabilities, and interactions in a **machine-readable, AI-native format**.
 
 OIS is designed to make businesses instantly understandable by:
 - AI agents
 - search engines
 - marketplaces
 - procurement systems
-- future automation platforms
+- automation platforms
 
 The goal is simple: **reduce discovery, integration, and coordination friction across the global economy**.
 
@@ -56,19 +56,145 @@ With a single `ois.json` file, a business can explicitly declare:
 
 `ois.json` is a machine-readable declaration of a business.
 
-It may include (non-exhaustive):
-- organization identity
-- offerings (SKUs, services, capabilities)
-- problems worth solving
-- keywords for deterministic and semantic matching
-- operational metadata (location, availability, constraints)
+### Core Structure
+
+An OIS file contains:
+
+**Metadata**
+- Generator information
+- Version tracking
+- Timestamps (created/updated)
+- Website URL
+
+**Organization Identity**
+- Business name and registration details
+- Industry classification
+- Description and branding
+- Contact information
+- Service areas
+- Vision and mission statements
+- Establishment story and year
+- Success stories and case studies
+- Awards and recognitions
+
+**SKUs (Products & Services)**
+- Unique identifiers
+- Descriptions with semantic keywords
+- Unit definitions (atomic and alternative units)
+- Attributes (technical specifications, measurements)
+- Actions (purchase, quote, trial, subscribe, etc.)
+- Action prerequisites and conditions
+
+**Graph Connections**
+- Links to related OIS files
+- Dedicated organization references
+- Supply chain relationships
+
+**Schema.org Compatibility**
+- Optional JSON-LD context for web integration
+
+### File Location
 
 This file can live:
 - at a business root URL (`/ois.json`)
 - in a public repository
-- in a shared OIS repository
+- in a shared OIS registry
 
 ---
+
+## Key Schema Features
+
+### Dual-Mode Semantics
+
+OIS uses a consistent `plainText` + `keywords` pattern throughout the schema:
+
+```json
+{
+  "plainText": "Human-readable description for context and semantic search",
+  "keywords": ["tag1", "tag2", "tag3"]
+}
+```
+
+This enables:
+- **Deterministic matching** via exact keyword matching
+- **Semantic search** via plainText embeddings
+- **Flexible taxonomy** that evolves with usage
+
+### Atomic Unit System
+
+SKUs define a base atomic unit and alternative units with precise conversion rates:
+
+```json
+{
+  "skuAtomicUnitName": "piece",
+  "skuOtherUnits": [
+    {
+      "unitName": "box",
+      "amountPerAtomicUnit": 100
+    }
+  ]
+}
+```
+
+This enables quantity normalization and cross-supplier comparison.
+
+### Attributes System
+
+Technical specifications and properties with measurement goals:
+
+```json
+{
+  "attributeName": "voltage",
+  "attributeValue": "220",
+  "attributeUnit": "V",
+  "attributeMeasurementGoal": {
+    "plainText": "accuracy",
+    "keywords": ["accuracy", "precision"]
+  }
+}
+```
+
+Flexible enough for any attribute type: physical, technical, performance, or compliance.
+
+### Actions System
+
+Multiple interaction types per SKU with prerequisites and conditions:
+
+```json
+{
+  "actionTypeConcept": {
+    "plainText": "purchase",
+    "keywords": ["purchase", "buy", "order"]
+  },
+  "actionPrerequisites": [...],
+  "actionConditionTerms": [...],
+  "actionURL": "https://example.com/purchase"
+}
+```
+
+Supports purchase, quote requests, trials, subscriptions, and custom workflows.
+
+### Graph Structure
+
+Businesses can reference other OIS files for supply chain relationships, partnerships, and multi-brand structures:
+
+```json
+{
+  "additionalOISURLs": [
+    {
+      "url": "https://partner.com/ois.json",
+      "description": {...}
+    }
+  ]
+}
+```
+
+---
+
+## Files
+
+**`ois-template-concept.js`**  
+Defines the complete OIS schema structure v1.0, including all fields, data types, validation rules, and field descriptions. This is the single source of truth for what an `ois.json` file contains. The template uses a consistent plainText + keywords pattern for semantic flexibility
 
 ## Repository Structure
 
@@ -76,9 +202,9 @@ This file can live:
 open-industry-schema/
   ├── src/
   │   ├── index.html          # Main web interface for the OIS generator
-  │   ├── ois-app.js          # Application logic: form generation, validation, JSON compilation
-  │   ├── ois-app.css         # Styling for the web interface
-  │   └── ois-template.js     # Schema definition and field structure template
+  │   ├── ois-app.js              # Application logic: form generation, validation, JSON compilation
+  │   ├── ois-app.css             # Styling for the web interface
+  │   └── ois-template-concept.js # Schema definition and field structure template (v1.0)
   │
   ├── compiled/
   │   └── <country_code>/     # e.g., th/ for Thailand, us/ for United States
@@ -99,8 +225,8 @@ Core application logic that dynamically generates the form from the template, ha
 **`src/ois-app.css`**  
 Styling for the web interface to ensure a clean, professional, and user-friendly experience.
 
-**`src/ois-template.js`**  
-Defines the OIS schema structure, including all fields, data types, validation rules, and field descriptions. This is the single source of truth for what an `ois.json` file contains.
+**`src/ois-template-concept.js`**  
+Defines the OIS schema structure v1.0, including all fields, data types, validation rules, and field descriptions. This is the single source of truth for what an `ois.json` file contains. Uses a consistent plainText + keywords pattern throughout for semantic flexibility.
 
 **`compiled/<country_code>/<business_id>/ois.json`**  
 Generated OIS files organized by country code and business identifier. Each `ois.json` file is independently usable and can be freely downloaded, cached, or indexed by any platform.

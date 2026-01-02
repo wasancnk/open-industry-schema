@@ -11,7 +11,7 @@ var oisTemplateConcept = {
         websiteURL: "<insert website here>",
         
         // REQUIRED: OIS version this template concept is compatible with.
-        oisVersion: "<insert OIS version here>",
+        oisVersion: "1.0",
 
         // REQUIRED: Specifies when the ois.json was created and updated.
         // Example date format: "2026-01-31T12:00:00Z"
