@@ -176,9 +176,14 @@ var oisTemplateConcept = {
                     }
                 }
             ],
-            
             // OPTIONAL: The logo of the business.
-            orgLogo: "<insert business logo URL here>"
+            orgLogo: "<insert business logo URL here>",
+
+            // OPTIONAL: The motto of the business website.
+            orgWebsiteMotto: "<insert business website motto here>",
+            
+            // OPTIONAL: The full background image URL for the first page of the business website.
+            orgFirstPageFullBackgroundImageURL: "<insert first page background image URL here>"
         },
 
         // REQUIRED: List of SKUs (products or services) offered by the business.
@@ -211,6 +216,101 @@ var oisTemplateConcept = {
                     plainText: "<insert plain text description here>",
                     keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                 },
+
+                // REQUIRED: List of attributes defining the SKU.
+                skuAttributes: [
+                    {
+                        // REQUIRED: The name of the attribute.
+                        attributeName: "<insert attribute name here>",
+
+                        // REQUIRED: The value of the attribute.
+                        attributeValue: "<insert attribute value here>",
+
+                        // OPTIONAL: The value range of the attribute.
+                        attributeValueRange: {
+                            // OPTIONAL: The minimum value of the attribute.
+                            minValue: 10, // Example number, can be integer or float.
+                            // OPTIONAL: The maximum value of the attribute.
+                            maxValue: 100 // Example number, can be integer or float.
+                        },
+                        
+                        // REQUIRED: The unit of the attribute. Prefer standard or scientific units.
+                        // For e.g., "USD", "hours", "pieces", "grams", "liters", etc.
+                        attributeUnit: "<insert attribute unit here>",
+                        
+                        // OPTIONAL: The measurement goal concept of the attribute.
+                        attributeMeasurementGoal: {
+                            // Both plain text and Schema.org keywords are supported.
+                            // Example plainText: "accuracy",
+                            // Example keywords: "accuracy, precision, reliability",
+                            plainText: "<insert plain text description here>",
+                            keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                        }
+                    }
+                ],
+
+                // REQUIRED: List of actions related to the SKU.
+                // There can be multiple actions per SKU. 
+                // For e.g., "purchase", "subscribe", "rent", "trial", etc.
+                skuActions: [
+                    {
+                        // OPTIONAL: The unique identifier for the action inside the SKU.
+                        // This will help to uniquely identify the action if there are multiple actions.
+                        // Very useful for future automation and referencing.
+                        // If specified, must be UUID format and unique across all SKUs in the business.
+                        actionUniqueId: "<insert action unique ID here>",
+
+                        // REQUIRED: The action type concept.
+                        // Both plain text and Schema.org keywords are supported.
+                        // Example plainText: "purchase",
+                        // Example keywords: "purchase, buy, order",
+                        actionTypeConcept: {
+                            plainText: "<insert plain text description here>",
+                            keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                        },
+
+                        // OPTIONAL: Description of the action prerequisites.
+                        actionPrerequisites: [
+                            {
+                                // Both plain text and Schema.org description are supported.
+                                // Example plainText: "Customer must create an account before purchasing.",
+                                // Example keywords: "accountCreation, customerRegistration",
+                                plainText: "<insert plain text description here>",
+                                keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                            }
+                        ],
+
+                        // OPTIONAL: Description of the action conditions.
+                        actionConditionTerms: [
+                            {
+                                // Both plain text and Schema.org description are supported.
+                                // Example plainText: "All sales are final and non-refundable.",
+                                // Example keywords: "finalSale, nonRefundable",
+                                plainText: "<insert plain text description here>",
+                                keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                            }
+                        ],
+
+                        // OPTIONAL: The URL to perform the action.
+                        // For example: "https://example.com/purchase/sku123"
+                        actionURL: "<insert action URL here>",
+
+                        // OPTIONAL: The HTTP method to perform the action.
+                        // Useful for API-based actions.
+                        actionMethod: "<insert action method here>", // For example: "POST", "GET", "PUT", etc.
+
+                        // OPTIONAL: The payload details for the action.
+                        actionPayload: {
+                            // OPTIONAL: The payload format for the action.
+                            // For example: "application/json", "application/xml", etc.
+                            payloadFormat: "<insert payload format here>",
+                            
+                            // OPTIONAL: The payload schema for the action.
+                            // For example: JSON Schema, XML Schema, etc.
+                            payloadSchema: "<insert payload schema here>"
+                        }
+                    }
+                ],
 
                 // OPTIONAL: List of alternative units for the SKU.
                 skuOtherUnits: [
