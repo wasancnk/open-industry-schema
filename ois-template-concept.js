@@ -87,9 +87,10 @@ var oisTemplateConcept = {
             // For country codes, use ISO 3166-1 alpha-2 country codes.
             orgServiceAreas: [
                 {
-                    regionName: "<insert region name here>",
-                    countryName: "<insert country name here>",
-                    cityName: "<insert city name here>"        
+                    regionName: "<insert region name here>", // For example: "Southeastern Asia"
+                    countryCode: "<insert country code here>", // ISO 3166-1 alpha-2. For example: "TH" for Thailand
+                    countryName: "<insert country name here>", // For example: "Singapore"
+                    cityName: "<insert city name here>" // For example: "Singapore"
                 }
             ],
 
@@ -110,6 +111,71 @@ var oisTemplateConcept = {
                 plainText: "<insert plain text description here>",
                 keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
             },
+
+            // OPTIONAL: The establishment story of the business. Used for branding and marketing.
+            orgEstablishmentStory: {
+                // Both plain text and Schema.org description are supported.
+                // Example plainText: "Founded in 2010, our company has grown from a small startup to a leading software development firm.",
+                // Example keywords: "founded2010, growthStory, softwareDevelopment",
+                plainText: "<insert plain text description here>",
+                keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+            },
+
+            // OPTIONAL: The establishment year of the business.
+            orgEstablishmentYear: 2010, // Example year, must be a number.
+
+            // OPTIONAL: List of success stories related to the business.
+            orgSuccessStories: [
+                {
+                    // REQUIRED: Title of the success story.
+                    title: "<insert success story title here>",
+
+                    // OPTIONAL: Image URL representing the success story.
+                    imageURL: "<insert success story image URL here>",
+
+                    // REQUIRED: The date when the success story was achieved.
+                    achievedAt: "<insert achievement date here>", // Example date format: "2023-05-15T00:00:00Z"
+
+                    // REQUIRED: The organization involved in the success story.
+                    orgInvolvedName: "<insert involved organization name here>",
+                    orgInvolvedURL: "<insert involved organization URL here>",
+                    orgInvolvedCountryCode: "<insert involved organization country code here>",
+
+                    // REQUIRED: Description of the success story.
+                    description: {
+                        // Both plain text and Schema.org description are supported.
+                        // Example plainText: "Successfully delivered a complex e-commerce platform for a major retailer.",
+                        // Example keywords: "ecommercePlatform, majorRetailer, successfulDelivery",
+                        plainText: "<insert plain text description here>",
+                        keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                    }
+                }
+            ],
+
+            // OPTIONAL: List of awards and recognitions received by the business.
+            orgAwardsAndRecognitions: [
+                {
+                    // REQUIRED: Title of the award or recognition.
+                    title: "<insert award title here>",
+                    
+                    // REQUIRED: The date when the award or recognition was received.
+                    receivedAt: "<insert received date here>", // Example date format: "2022-11-20T00:00:00Z"
+                    
+                    // REQUIRED: The organization that issued the award or recognition.
+                    issuedBy: "<insert issuing organization name here>",
+                    issuedByURL: "<insert issuing organization URL here>",
+                    issuedByCountryCode: "<insert issuing organization country code here>",
+                    
+                    // REQUIRED: Description of the award or recognition.
+                    description: {
+                        // Both plain text and Schema.org description are supported.
+                        // Example plainText: "Awarded 'Best Software Development Company' by Tech Magazine.",
+                        // Example keywords: "bestSoftwareCompany, techMagazine, industryRecognition",
+                        plainText: "<insert plain text description here>",
+                        keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                    }
+                }
+            ],
             
             // OPTIONAL: The logo of the business.
             orgLogo: "<insert business logo URL here>"
