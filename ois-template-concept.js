@@ -204,6 +204,22 @@ var oisTemplateConcept = {
                     keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                 },
 
+                // OPTIONAL: The readiness level of the SKU for commercial use.
+                // Useful for researchers, inventors, and R&D teams to showcase early-stage solutions.
+                skuReadinessLevel: {
+                    // Both plain text and Schema.org keywords are supported.
+                    // Example plainText: "concept" - Early research/prototype stage, not yet validated
+                    // Example plainText: "viable" - Proven feasibility but not production-ready
+                    // Example plainText: "production" - Fully ready for commercial deployment
+                    // Example plainText: "deprecated" - End-of-life or being phased out
+                    // Example keywords for concept: "concept, prototype, experimental, research"
+                    // Example keywords for viable: "viable, preProduction, beta, pilotTesting"
+                    // Example keywords for production: "production, commercial, generallyAvailable, stable"
+                    // Example keywords for deprecated: "deprecated, endOfLife, legacy, phaseOut"
+                    plainText: "<insert readiness level here>",
+                    keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                },
+
                 // REQUIRED: Atomic unit name of the SKU, must be name of smallest unit.
                 // For example: "hour", "item", "session", "piece", "gram", milliliter", etc.
                 skuAtomicUnitName: "<insert atomic unit name here>",
@@ -291,6 +307,14 @@ var oisTemplateConcept = {
                             }
                         ],
 
+                        // OPTIONAL: Lead time details for the action.
+                        actionLeadTime: {
+                            // OPTIONAL: The minimum lead time required to perform the action.
+                            minLeadTimeInHours: 24, // Example number, must be an integer.
+                            // OPTIONAL: The maximum lead time required to perform the action.
+                            maxLeadTimeInHours: 72 // Example number, must be an integer.
+                        },
+
                         // OPTIONAL: The URL to perform the action.
                         // For example: "https://example.com/purchase/sku123"
                         actionURL: "<insert action URL here>",
@@ -345,6 +369,39 @@ var oisTemplateConcept = {
                             plainText: "<insert plain text description here>",
                             keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                         }
+                    }
+                ],
+                
+                // OPTIONAL: Problems that the SKU solves. Useful for marketing and sales.
+                skuSolvesProblems: [
+                    {
+                        // Both plain text and Schema.org description are supported.
+                        // Example plainText: "Helps businesses establish a strong online presence.",
+                        // Example keywords: "onlinePresence, digitalMarketing, webDevelopment",
+                        plainText: "<insert plain text description here>",
+                        keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                    }
+                ],
+
+                // OPTIONAL: Possible applications of the SKU. Useful for marketing and sales.
+                skuPossibleApplications: [
+                    {
+                        // Both plain text and Schema.org description are supported.
+                        // Example plainText: "Ideal for startups looking to launch their first mobile app.",
+                        // Example keywords: "startups, mobileAppLaunch, appDevelopment",
+                        plainText: "<insert plain text description here>",
+                        keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                    }
+                ],
+
+                // OPTIONAL: Possible challenges when using the SKU. Useful for marketing and sales.
+                skuPossibleChallenges: [
+                    {
+                        // Both plain text and Schema.org description are supported.
+                        // Example plainText: "May require additional training for staff to utilize effectively.",
+                        // Example keywords: "staffTraining, effectiveUtilization",
+                        plainText: "<insert plain text description here>",
+                        keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
                     }
                 ],
 
