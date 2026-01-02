@@ -47,6 +47,13 @@ var oisTemplateConcept = {
         orgMetadataMain: {
             // REQUIRED: The name of the business.
             orgName: "<insert business name here>",
+
+            // REQUIRED: The official registration ID of the business.
+            orgRegistrationID: "<insert business registration ID here>",
+
+            // REQUIRED: The country of registration of the business.
+            // Use ISO 3166-1 alpha-2 country codes. For example: "US" for United States, "SG" for Singapore.
+            orgCountryOfRegistration: "<insert country code here>",
             
             // REQUIRED: Industry type of the business.
             orgIndustry: {
@@ -76,13 +83,33 @@ var oisTemplateConcept = {
             },
             
             // REQUIRED: List of service areas the business operates in.
-            // See region options at https://en.wikipedia.org/wiki/United_Nations_geoscheme
-            // Format: "<Region>, <Country>, <City>"
-            // Example: "South-eastern Asia, Singapore, Singapore"
+            // For region names, see options at https://en.wikipedia.org/wiki/United_Nations_geoscheme
+            // For country codes, use ISO 3166-1 alpha-2 country codes.
             orgServiceAreas: [
-                "<insert service area 1 here>",
-                "<insert service area 2 here>"
+                {
+                    regionName: "<insert region name here>",
+                    countryName: "<insert country name here>",
+                    cityName: "<insert city name here>"        
+                }
             ],
+
+            // OPTIONAL: The vision statement of the business.
+            orgVisionStatement: {
+                // Both plain text and Schema.org description are supported.
+                // Example plainText: "To be the global leader in innovative software solutions.",
+                // Example keywords: "innovation, globalLeader, softwareSolutions",
+                plainText: "<insert plain text description here>",
+                keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+            },
+
+            // OPTIONAL: The mission statement of the business.
+            orgMissionStatement: {
+                // Both plain text and Schema.org description are supported.
+                // Example plainText: "To deliver high-quality software that empowers businesses to succeed in the digital age.",
+                // Example keywords: "highQuality, empowerBusinesses, digitalSuccess",
+                plainText: "<insert plain text description here>",
+                keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+            },
             
             // OPTIONAL: The logo of the business.
             orgLogo: "<insert business logo URL here>"
@@ -134,8 +161,24 @@ var oisTemplateConcept = {
                             minAmount: 70,
                             // OPTIONAL: The maximum amount per atomic unit for this alternative unit.
                             maxAmount: 100
-                        }
+                        },
 
+                        // OPTIONAL: Description of the alternative unit.
+                        unitDescription: {
+                            // Both plain text and Schema.org description are supported.
+                            // Example plainText: "Bulk package for small businesses.",
+                            // Example keywords: "bulkPackage, smallBusinesses, discountedRate",
+                            plainText: "<insert plain text description here>",
+                            keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                        },
+
+                        // OPTIONAL: Suitable scenario for the alternative unit.
+                        // Both plain text and Schema.org keywords are supported.
+                        // Example plainText: "suitable for small businesses",
+                        suitableForScenario: {
+                            plainText: "<insert plain text description here>",
+                            keywords: ["<insert keyword 1 here>", "<insert keyword 2 here>"]
+                        }
                     }
                 ],
 
