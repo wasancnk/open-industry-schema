@@ -329,6 +329,5 @@ No permission required.
 
 ## License
 
-OIS schema specifications are intended to be open and permissive.
-Specific licensing details will be finalized as the project matures.
+OIS is under Apache License 2.0 .
 
